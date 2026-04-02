@@ -1,97 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Earning.Form</title>
-</head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Super Earning Form</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="style.css">
-<!--CDN ICON LINK-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-<body class="bg-white">
-    
-    <div class="flex  justify-center gap-9">
-    <div class=" p-2 w-full  bg-white md:mx-5 md:w-[800px] ">
-<h1 class="font-bold  text-black text-center text-sm md:text-lg mb-4">Welcome to Super Earning</h1>
-<p class="text-center text-xs md:text-sm">Fill the form to join December <span class="font-bold">Super  Earning</span> USDT giveaway ends in <span class="text-red-900">20th</span> !!!</p>
 
-<div class="flex justify-center mt-7">
-    <div class="flex flex-col gap-9">
-<label for="name">
-    <input class="border-b-[1px] border-black w-[400px] outline-none placeholder-gray-700 text-sm font-medium" type="text" form="name" placeholder="first name:">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+
+<div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+
+<h1 class="font-bold text-center text-xl mb-2">
+Welcome to Super Earning
+</h1>
+
+<p class="text-center text-sm mb-6">
+Fill the form to join December
+<span class="font-bold">Super Earning</span>
+USDT giveaway ends in
+<span class="text-red-600">20th</span>
+</p>
+
+
+<p id="error"
+class="text-red-500 text-sm text-center mb-3 hidden">
+Please fill all fields
+</p>
+
+
+<form id="form" class="flex flex-col gap-6">
+
+
+<input
+id="firstname"
+type="text"
+placeholder="First Name"
+class="border-b border-black outline-none py-1"
+/>
+
+
+<input
+id="lastname"
+type="text"
+placeholder="Last Name"
+class="border-b border-black outline-none py-1"
+/>
+
+
+<p class="font-medium">How did you hear about us?</p>
+
+
+<label class="flex gap-2">
+<input type="radio" name="source" value="twitter">
+Twitter
+</label>
+
+<label class="flex gap-2">
+<input type="radio" name="source" value="facebook">
+Facebook
+</label>
+
+<label class="flex gap-2">
+<input type="radio" name="source" value="telegram">
+Telegram
+</label>
+
+<label class="flex gap-2">
+<input type="radio" name="source" value="linkedin">
+LinkedIn
 </label>
 
 
-<label for="last name">
-    <input class="border-b-[1px] border-black w-[400px] outline-none placeholder-gray-700 text-sm font-medium" type="text" form="name" placeholder="last name:">
-</label>
+<input
+id="wallet"
+type="text"
+placeholder="TRC20 Address"
+class="border-b border-black outline-none py-1"
+/>
 
 
-
-<p>How do you hear about us?</p>
-
-<div>
-  <label class="flex items-center gap-2">
-    <input  type="radio" name="source" value="twitter" class="accent-blue-500 cursor-pointer">
-    Twitter
-  </label>
-</div>
-
-<div>
-  <label class="flex items-center gap-2">
-    <input type="radio" name="source" value="facebook" class="accent-blue-500 cursor-pointer">
-    Facebook
-  </label>
-</div>
-
-<div>
-  <label class="flex items-center gap-2">
-    <input type="radio" name="source" value="telegram" class="accent-blue-500 cursor-pointer">
-    Telegram
-  </label>
-</div>
-
-<div>
-  <label class="flex items-center gap-2">
-    <input type="radio" name="source" value="linkedin" class="accent-blue-500 cursor-pointer">
-    LinkedIn
-  </label>
-</div>
-
-<label for="TRC 20 Address">
-    <input class="border-b-[1px] border-black w-[400px] outline-none placeholder-gray-700 text-sm font-medium" type="text" form="name" placeholder="TRC 20 Address:">
-</label>
-
-</div>
-</div>
-
-<div id="Submit" class="flex justify-center mt-[4rem]">
-<button class="bg-red-400 py-1 px-4 rounded text-white font-bold">Submit</button>
-</div>
-
-<div id="modula" class="modulas hidden fixed inset-0 bg-black/50 flex  items-center justify-center" >
-
-
-<div class="w-80 py-2 px-4 bg-white rounded-lg h-80">
-<p class="font-semibold text-red-500">Pay 10 USDT - 50 USDT to top up in leader board</p>
-
-<!--ADRESS-->
-<div class="flex flex-col gap-6 mt-7">
-  <h4 class="text-sm"> TG4EEvojhBspeG3KgT4FY863k8dos2cGPR</h4>
-</div>
-
-<button   id="close"
-      class="px-3 py-1 bg-red-500 text-white rounded mt-4 flex justify-center items-center">
-    <a href="#">Continue</a>
+<button
+type="submit"
+class="bg-red-500 text-white py-2 rounded font-semibold">
+Submit
 </button>
+
+
+</form>
+
 </div>
+
+
+
+<!-- PAYMENT MODAL -->
+
+
+<div id="modal"
+class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
+
+
+<div class="bg-white w-80 p-6 rounded-lg text-center">
+
+
+<!-- PAYMENT BOX -->
+
+
+<div id="paymentBox">
+
+<p class="text-red-500 font-semibold mb-4">
+Send 10-50 USDT to enter leaderboard
+</p>
+
+
+<!-- WALLET ADDRESS -->
+
+
+<div class="bg-gray-100 p-2 rounded text-sm break-all mb-3"
+id="walletAddress">
+TG4EEvojhBspeG3KgT4FY863k8dos2cGPR
 </div>
+
+
+<!-- COPY BUTTON -->
+
+
+<button
+id="copyBtn"
+class="bg-gray-200 px-3 py-1 rounded text-sm mb-4">
+<i class="bi bi-clipboard"></i>
+Copy Address
+</button>
+
+
+<!-- PAY BUTTON -->
+
+
+<button
+id="payBtn"
+class="bg-green-500 text-white px-4 py-2 rounded w-full">
+Pay
+</button>
+
+</div>
+
+
+
+<!-- SUCCESS BOX -->
+
+
+<div id="successBox"
+class="hidden flex flex-col items-center gap-3">
+
+
+<i class="bi bi-check-circle-fill
+text-green-500 text-6xl"></i>
+
+
+<h2 class="text-green-600 font-bold text-lg">
+Payment Successful
+</h2>
+
+
+<p class="text-gray-500 text-sm">
+Form submitted successfully
+</p>
+
+
+</div>
+
 
 </div>
 </div>
+
+
+
+<script>
+
+
+const form = document.getElementById("form");
+
+const firstname = document.getElementById("firstname");
+const lastname = document.getElementById("lastname");
+const wallet = document.getElementById("wallet");
+
+const modal = document.getElementById("modal");
+
+const error = document.getElementById("error");
+
+const paymentBox = document.getElementById("paymentBox");
+
+const successBox = document.getElementById("successBox");
+
+const copyBtn = document.getElementById("copyBtn");
+
+const payBtn = document.getElementById("payBtn");
+
+const walletAddress =
+document.getElementById("walletAddress");
+
+
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let source =
+document.querySelector('input[name="source"]:checked');
+
+if(
+firstname.value === "" ||
+lastname.value === "" ||
+wallet.value === "" ||
+!source
+){
+
+error.classList.remove("hidden");
+return;
+
+}
+
+error.classList.add("hidden");
+
+modal.classList.remove("hidden");
+
+});
+
+
+
+copyBtn.addEventListener("click", function(){
+
+navigator.clipboard.writeText(walletAddress.innerText);
+
+copyBtn.innerText = "Copied ✔";
+
+});
+
+
+
+payBtn.addEventListener("click", function(){
+
+paymentBox.classList.add("hidden");
+
+successBox.classList.remove("hidden");
+
+});
+
+
+</script>
 
 
 </body>
-<script src="script.js"></script>
 </html>
